@@ -1,11 +1,11 @@
 package ru.mik0war.netapp.ui
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import ru.mik0war.netapp.R
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import ru.mik0war.netapp.data.cloud.NetApp
+import ru.mik0war.netapp.data.cloud.ServerDTO
 import ru.mik0war.netapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,5 +28,15 @@ class MainActivity : AppCompatActivity() {
         // биндинг не будут применены к отображаемым
         // элементам
         setContentView(binding.root)
+
+        lifecycleScope.launch {
+
+            NetApp.api.createItem(ServerDTO("new item", 5))
+            NetApp.api.getItem(0)
+            NetApp.api.getItems()
+
+        }
+
+
     }
 }
