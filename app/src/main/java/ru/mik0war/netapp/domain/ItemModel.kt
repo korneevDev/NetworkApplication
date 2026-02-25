@@ -15,8 +15,6 @@ sealed interface ItemModel : MappedItem{
     data class Error(
         private val message: String
     ) : ItemModel {
-        override fun <T> map(mapper: ItemMapper<T>): T {
-            throw IllegalStateException()
-        }
+        override fun <T> map(mapper: ItemMapper<T>): T = mapper.mapError(message)
     }
 }

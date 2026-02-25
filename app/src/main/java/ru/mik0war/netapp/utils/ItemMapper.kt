@@ -3,6 +3,8 @@ package ru.mik0war.netapp.utils
 interface ItemMapper<T> {
 
     fun map(id: Int, name: String): T
+
+    fun mapError(text: String): T
 }
 
 interface MappedItem{

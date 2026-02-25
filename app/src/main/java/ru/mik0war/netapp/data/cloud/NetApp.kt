@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object NetApp {
 
-    private const val BASE_URL = "http://10.240.207.246:5000"
+    private const val BASE_URL = "http://192.168.15.221:5000"
 
     // Настройка логирования
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
